@@ -7,4 +7,6 @@ module.exports = {
     '^.+\\.ts$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'js', 'json', 'node'],
+  testTimeout: 30000, // Increase to 30 seconds
+  setupFiles: ['dotenv/config'], // Add this line to load environment variables
 };

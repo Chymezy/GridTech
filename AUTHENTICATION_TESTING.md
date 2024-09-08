@@ -123,3 +123,140 @@ After successful testing, consider:
 
 **Request:**
 ```
+POST http://localhost:3000/users
+```
+
+**Expected Response:**
+- Status: 201 Created
+- Body: JSON object containing the newly created user's information
+
+**Test Command:**
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{
+"name": "John Doe",
+"email": "john.doe@example.com",
+"password": "password123"
+}' http://localhost:3000/users
+```
+
+### 7. Retrieve a User
+
+**Request:**
+```
+GET http://localhost:3000/users/:id
+```
+
+**Expected Response:**
+- Status: 200 OK
+- Body: JSON object containing the user's information
+
+**Test Command:**
+```bash
+curl http://localhost:3000/users/:id
+```
+
+### 8. Update a User
+
+**Request:**
+```
+PATCH http://localhost:3000/users/:id
+```
+
+**Expected Response:**
+- Status: 200 OK
+- Body: JSON object containing the updated user's information
+
+**Test Command:**
+```bash
+curl -X PATCH -H "Content-Type: application/json" -d '{
+"name": "Jane Doe",
+"email": "jane.doe@example.com"
+}' http://localhost:3000/users/:id
+```
+
+### 9. Delete a User
+
+**Request:**
+```
+DELETE http://localhost:3000/users/:id
+```
+
+**Expected Response:**
+- Status: 204 No Content
+
+**Test Command:**
+```bash
+curl -X DELETE http://localhost:3000/users/:id
+```
+
+## User Management Test Cases
+
+### 6. Create a New User
+
+**Request:**
+```
+POST http://localhost:3000/users
+```
+
+**Expected Response:**
+- Status: 201 Created
+- Body: JSON object containing the newly created user's information
+
+**Test Command:**
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{
+"name": "John Doe",
+"email": "john.doe@example.com",
+"password": "password123"
+}' http://localhost:3000/users
+```
+
+### 7. Retrieve a User
+
+**Request:**
+```
+GET http://localhost:3000/users/:id
+```
+
+**Expected Response:**
+- Status: 200 OK
+- Body: JSON object containing the user's information
+
+**Test Command:**
+```bash
+curl http://localhost:3000/users/:id
+```
+
+### 8. Update a User
+
+**Request:**
+```
+PATCH http://localhost:3000/users/:id
+```
+
+**Expected Response:**
+- Status: 200 OK
+- Body: JSON object containing the updated user's information
+
+**Test Command:**
+```bash
+curl -X PATCH -H "Content-Type: application/json" -d '{
+"name": "Jane Doe",
+"email": "jane.doe@example.com"
+}' http://localhost:3000/users/:id
+```
+
+### 9. Delete a User
+
+**Request:**
+```
+DELETE http://localhost:3000/users/:id
+```
+
+**Expected Response:**
+- Status: 204 No Content
+
+**Test Command:**
+```bash
+curl -X DELETE http://localhost:3000/users/:id
+```

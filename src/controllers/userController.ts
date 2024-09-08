@@ -1,12 +1,12 @@
-import { Response } from 'express';
-import asyncHandler from 'express-async-handler';
+import { Response, NextFunction } from 'express';
+import asyncHandler from '../utils/asyncHandler';
 import User, { IUser } from '../models/User';
 import { AuthenticatedRequest } from '../middleware/auth';
 
 // @desc    Create a new user
 // @route   POST /api/users
 // @access  Private
-export const createUser = asyncHandler(async (req: AuthenticatedRequest, res: Response) => {
+export const createUser = asyncHandler(async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
   const { firebaseUid, email, displayName } = req.body;
 
   const userExists = await User.findOne({ firebaseUid });
@@ -38,7 +38,7 @@ export const createUser = asyncHandler(async (req: AuthenticatedRequest, res: Re
 // @desc    Get user profile
 // @route   GET /api/users/profile
 // @access  Private
-export const getUserProfile = asyncHandler(async (req: AuthenticatedRequest, res: Response) => {
+export const getUserProfile = asyncHandler(async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
   if (!req.user || !req.user.uid) {
     res.status(401);
     throw new Error('Not authorized, no user found');
